@@ -1,5 +1,15 @@
+variable "repo_name" {
+  description = "The name of the repository."
+  type        = string
+}
+
 variable "project_id" {
   description = "The ID of the project in which to provision resources."
+  type        = string
+}
+
+variable "location" {
+  description = "The location in which to provision resources."
   type        = string
 }
 

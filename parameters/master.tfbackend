@@ -1,0 +1,2 @@
+bucket  = "stack-analyzer-system-terraform-state"
+prefix  = "terraform/${REPO_NAME}"

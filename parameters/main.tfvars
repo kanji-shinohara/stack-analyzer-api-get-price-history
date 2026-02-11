@@ -1,0 +1,5 @@
+repo_name            = "${REPO_NAME}"
+project_id           = "${PROJECT_ID}"
+location             = "${LOCATION}"
+project_region       = "${PROJECT_REGION}"
+bucket_name          = "stack-analyzer-system-terraform-state"
