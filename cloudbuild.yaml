@@ -12,7 +12,16 @@ steps:
   - DOPPLER_TOKEN
   args:
   - -c
-  - echo "Doppler Setup..." && curl -Ls https://cli.doppler.com/install.sh | sh && doppler secrets download --project stack-analyzer --config v1 --no-file --format docker > /workspace/.env
+  - |
+    echo "Doppler Setup..."
+    for i in 1 2 3; do
+      curl -Ls https://cli.doppler.com/install.sh | sh && break || { echo "Doppler installation failed, retrying ($i)..." >&2; sleep $((i*5)); }
+    done
+    if ! command -v doppler > /dev/null; then
+      echo "Doppler installation ultimately failed" >&2
+      exit 1
+    fi
+    doppler secrets download --project stack-analyzer --config v1 --no-file --format docker > /workspace/.env
   id: setup-doppler
 - id: Build
   name: hashicorp/terraform:latest
