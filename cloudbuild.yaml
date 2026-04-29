@@ -14,7 +14,7 @@ steps:
   - -c
   - |
     echo "Doppler Setup..."
-    for i in 1 2 3; do
+    for i in $(seq 1 30); do
       curl -Ls https://cli.doppler.com/install.sh | sh && break || { echo "Doppler installation failed, retrying ($i)..." >&2; sleep $((i*5)); }
     done
     if ! command -v doppler > /dev/null; then
