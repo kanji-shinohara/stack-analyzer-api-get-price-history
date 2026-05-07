@@ -4,3 +4,4 @@ terraform.tfstate
 terraform.tfstate.backup
 *.zip
 __pycache__/
+.DS_Store
