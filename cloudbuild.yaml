@@ -28,7 +28,7 @@ steps:
   entrypoint: sh
   args:
   - -c
-  - 'if [ -f /workspace/.env ]; then . /workspace/.env; fi
+  - 'if [ -f /workspace/.env ]; then set -a && . /workspace/.env && set +a; fi
 
     export PROJECT_ID="${PROJECT_ID}" && \
 
@@ -78,7 +78,7 @@ steps:
   entrypoint: sh
   args:
   - -c
-  - 'if [ -f /workspace/.env ]; then . /workspace/.env; fi
+  - 'if [ -f /workspace/.env ]; then set -a && . /workspace/.env && set +a; fi
 
     export PROJECT_ID="${PROJECT_ID}" && \
 
